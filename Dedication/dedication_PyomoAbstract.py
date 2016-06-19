@@ -57,10 +57,10 @@ model.cash_balance = Constraint(range(1, 9), rule=cash_balance_rule)
 epsilon = .001
 
 opt = SolverFactory("cbc")
-instance = model.create('dedication-Pyomo.dat')
+instance = model.create_instance('dedication-Pyomo.dat')
 results = opt.solve(instance)
 results.write()
-instance.load(results)
+instance.solutions.load_from(results)
 
 print "Optimal strategy"
 for b in instance.buy:

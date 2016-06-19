@@ -89,12 +89,11 @@ model.cash_balance = Constraint(Periods[1:], rule=cash_balance_rule)
 epsilon = .001
 
 opt = SolverFactory("cbc")
-instance = model.create()
-results = opt.solve(instance)
-instance.load(results)
+results = opt.solve(model)
+model.solutions.load_from(results)
 
 print "Optimal strategy"
-for b in instance.buy:
-    if instance.buy[b].value > epsilon:
-        print 'Buy %f of Bond %s' %(instance.buy[b].value, b)
+for b in model.buy:
+    if model.buy[b].value > epsilon:
+        print 'Buy %f of Bond %s' %(model.buy[b].value, b)
         
