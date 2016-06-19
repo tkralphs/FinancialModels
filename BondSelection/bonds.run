@@ -1,0 +1,8 @@
+option solver clp;
+model bonds.mod;
+data bonds.dat;
+write gbonds;
+solve;
+
+display buy;
+display rating_limit, cash_limit;

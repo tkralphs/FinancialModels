@@ -1,0 +1,7 @@
+option solver clp;
+model dedication.mod;
+data dedication-AMPL.dat;
+
+solve;
+
+display buy;

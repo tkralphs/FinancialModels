@@ -1,0 +1,7 @@
+option solver cplex;
+model short_term_financing.mod;
+data short_term_financing.dat;
+
+solve;
+
+display credit, bonds, invest;

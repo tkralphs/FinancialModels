@@ -1,0 +1,5 @@
+option solver cplexamp;
+model bonds_simple.mod
+solve;
+
+display X1, X2;
